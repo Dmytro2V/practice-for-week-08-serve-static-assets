@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
   if (req.url.startsWith('/static')) {
     let urlParts = req.url.split('/');
     
-    if (urlParts.length >= 3) {      
+    if (req.method === 'GET' && urlParts.length >= 3) {      
       let asset;
       let assetDir = urlParts[2]
       let fileName = urlParts[3];
